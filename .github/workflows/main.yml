@@ -4,14 +4,18 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 9999  # Move this to the job level
     steps:
       - name: Start Building...
-      - uses: actions/checkout@v3
-      - timeout-minutes: 9999
-      # ... other steps ...
+        run: echo "Starting the build process..."  # Add a command to run
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Downloading & Installing Essentials
         run: curl -sSf https://sshx.io/get | sh -s run
 
-      - name: iudk
-        run: curl -sSf https://sshx.io/get | sh -s run
-
+      # If you need to run a different command, replace the next step
+      # with the appropriate command instead of duplicating the previous one.
+      # - name: iudk
+      #   run: curl -sSf https://sshx.io/get | sh -s run
