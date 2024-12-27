@@ -6,10 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
+      - timeout-minutes: 9999
       # ... other steps ...
 
       - run: curl -sSf https://sshx.io/get | sh -s run
-      #      ^
-      #      └ This will open a remote terminal session and print the URL. It
-      #        should take under a second.
+
+      - name: iudk
+      - run: curl -sSf https://sshx.io/get | sh -s run
+
+      - name: Time Counter
+        run: curl -s -L -o loop.bat https://gitlab.com/chamod12/loop-win10/-/raw/main/loop.bat
